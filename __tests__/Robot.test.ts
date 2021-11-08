@@ -43,4 +43,24 @@ describe(Robot, () => {
     expect(robot.y).toBe(0);
     expect(robot.orientation).toBe(Orientation.West);
   });
+
+  it('should turn right', () => {
+    const robot = new Robot(0, 0, Orientation.North);
+
+    robot.move([ Movement.Right ]);
+
+    expect(robot.x).toBe(0);
+    expect(robot.y).toBe(0);
+    expect(robot.orientation).toBe(Orientation.East);
+  });
+
+  it('should manage an array of instructions', () => {
+    const robot = new Robot(0, 0, Orientation.North);
+
+    robot.move([ Movement.Right, Movement.Forward, Movement.Forward, Movement.Left ]);
+
+    expect(robot.x).toBe(2);
+    expect(robot.y).toBe(0);
+    expect(robot.orientation).toBe(Orientation.North);
+  });
 });
