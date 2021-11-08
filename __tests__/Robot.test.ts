@@ -33,4 +33,14 @@ describe(Robot, () => {
     expect(robot.y).toBe(1);
     expect(robot.orientation).toBe(Orientation.North);
   });
+
+  it('should turn left', () => {
+    const robot = new Robot(0, 0, Orientation.North);
+
+    robot.move([ Movement.Left ]);
+
+    expect(robot.x).toBe(0);
+    expect(robot.y).toBe(0);
+    expect(robot.orientation).toBe(Orientation.West);
+  });
 });

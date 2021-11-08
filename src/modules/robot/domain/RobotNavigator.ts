@@ -58,12 +58,12 @@ export class RobotNavigator {
     self.location.y--;
   };
 
-  private turnLeft() {
-    this.orientation = this.turnLeftDictionary[this.orientation];
+  private turnLeft(self: this) {
+    self.orientation = self.turnLeftDictionary[self.orientation];
   }
 
-  private turnRight() {
-    this.orientation = this.turnRightDictionary[this.orientation];
+  private turnRight(self: this) {
+    self.orientation = self.turnRightDictionary[self.orientation];
   }
 
   private moveForward(self: this) {
