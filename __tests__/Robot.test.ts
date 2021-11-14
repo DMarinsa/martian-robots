@@ -3,13 +3,13 @@ import { Robot } from "../src/modules/robot/domain/Robot";
 
 describe(Robot, () => {
   it('should initialise a Robot', () => {
-    const result = new Robot(0, 0, Orientation.North);
+    const result = new Robot(0, 0, Orientation.North, []);
 
     expect(result).toBeInstanceOf(Robot);
   });
 
   it('should starts at a given position and orientation', () => {
-    const result = new Robot(0, 0, Orientation.North);
+    const result = new Robot(0, 0, Orientation.North, []);
 
     expect(result.x).toBe(0);
     expect(result.y).toBe(0);
@@ -17,7 +17,7 @@ describe(Robot, () => {
   });
 
   it('should starts at [0, 0, "N"] if no position was given', () => {
-    const result = new Robot(0, 0, Orientation.North);
+    const result = new Robot(0, 0, Orientation.North, []);
 
     expect(result.x).toBe(0);
     expect(result.y).toBe(0);
@@ -25,9 +25,9 @@ describe(Robot, () => {
   });
 
   it('should move forward', () => {
-    const robot = new Robot(0, 0, Orientation.North);
+    const robot = new Robot(0, 0, Orientation.North, [ Movement.Forward ]);
 
-    robot.move([ Movement.Forward ]);
+    robot.move();
 
     expect(robot.x).toBe(0);
     expect(robot.y).toBe(1);
@@ -35,9 +35,9 @@ describe(Robot, () => {
   });
 
   it('should turn left', () => {
-    const robot = new Robot(0, 0, Orientation.North);
+    const robot = new Robot(0, 0, Orientation.North, [ Movement.Left ]);
 
-    robot.move([ Movement.Left ]);
+    robot.move();
 
     expect(robot.x).toBe(0);
     expect(robot.y).toBe(0);
@@ -45,9 +45,9 @@ describe(Robot, () => {
   });
 
   it('should turn right', () => {
-    const robot = new Robot(0, 0, Orientation.North);
+    const robot = new Robot(0, 0, Orientation.North, [ Movement.Right ]);
 
-    robot.move([ Movement.Right ]);
+    robot.move();
 
     expect(robot.x).toBe(0);
     expect(robot.y).toBe(0);
@@ -55,9 +55,9 @@ describe(Robot, () => {
   });
 
   it('should manage an array of instructions', () => {
-    const robot = new Robot(0, 0, Orientation.North);
+    const robot = new Robot(0, 0, Orientation.North, [ Movement.Right, Movement.Forward, Movement.Forward, Movement.Left ]);
 
-    robot.move([ Movement.Right, Movement.Forward, Movement.Forward, Movement.Left ]);
+    robot.move();
 
     expect(robot.x).toBe(2);
     expect(robot.y).toBe(0);
