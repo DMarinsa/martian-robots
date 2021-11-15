@@ -3,8 +3,11 @@ import { log } from "../../../infrastructure/log";
 import { Config } from "../../../infrastructure/persistence/Config";
 import { Movement, Orientation } from "../../navigation";
 import { Robot } from "../../robot/domain/Robot";
+import { checkPlanetExistence } from "../domain/checkPlanetExistence";
 
-export const addRobot = (x: string, y: string, orientation: Orientation, orders: string) => {
+export const addRobot = async (x: string, y: string, orientation: Orientation, orders: string) => {
+  await checkPlanetExistence();
+
   const xCoordinate = Number.parseInt(x) || 0;
   const yCoordinate = Number.parseInt(y) || 0;
   const actions = orders.split('') as Movement[];

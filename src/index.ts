@@ -16,7 +16,7 @@ cli
 
 cli
   .command('add-robot <x> <y> <orientation> <orders>')
-  .description('Initialise our Mars map coordinates')
+  .description('Add a robot to the travel list')
   .action(addRobot);
 
 cli
@@ -26,7 +26,7 @@ cli
 
 cli
   .command('travel')
-  .description('Initialise travel')
+  .description('Initialise travel. It will throw an error if there is no planet initialised')
   .action(starts);
 
 cli.parse(process.argv);
