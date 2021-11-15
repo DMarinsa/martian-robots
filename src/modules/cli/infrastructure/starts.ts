@@ -15,6 +15,10 @@ export const starts = async () => {
 
   robots.forEach(robot => {
     robot.move()
+    if (robot.x > 0 || robot.y > 0) {
+      log(chalk.red.bold(`robot lost at ${robot.x}, ${robot.y}`));
+      return;
+    }
     log(chalk.green.bold(`traveling finished at ${robot.x}, ${robot.y}`));
   });
 
