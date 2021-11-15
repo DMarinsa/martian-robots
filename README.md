@@ -40,6 +40,7 @@ NODE_ENV=production node app
 * Add more features related with exporting data about the travels
 * Deploy it on github so we can just `npm i mars`
 * Add e2e testing
+* Use a better persistence layer approach
 
 #### License
 
