@@ -4,6 +4,7 @@ import { log } from "../../../infrastructure/log";
 import { Config } from "../../../infrastructure/persistence/Config";
 
 export const init = (x: string, y: string) => {
+  Config.clear();
   const xCoordinate = Number.parseInt(x) || 50;
   const yCoordinate = Number.parseInt(y) || 50;
   const mars = new Mars(xCoordinate, yCoordinate);

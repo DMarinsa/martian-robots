@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { createCommand } from "commander";
 import { init } from './modules/cli/infrastructure/init';
 import { addRobot } from './modules/cli/infrastructure/add-robot';

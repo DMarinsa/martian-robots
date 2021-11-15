@@ -8,13 +8,13 @@
     "typescript",
     "cli"
   ],
-  "main": "./dist/tsc/main.js",
-  "types": "./dist/tsc/main.d.ts",
+  "main": "./dist/tsc/index.js",
+  "types": "./dist/tsc/index.d.ts",
   "bin": {
-    "mars": "./dist/cli.js"
+    "mars": "./dist/tsc/index.js"
   },
   "scripts": {
-    "cli": "ts-node src/cli.ts",
+    "cli": "ts-node src/index.ts",
     "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
     "test": "jest",
     "clean": "rm -rf dist build package",
