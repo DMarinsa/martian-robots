@@ -12,4 +12,8 @@ export class Robot {
     this.y = position.y;
     this.orientation = orientation;
   }
+
+  static construct({ x, y, orientation, orders, }: { x: number, y: number, orientation: Orientation, orders: Movement[], }) {
+    return new this(x, y, orientation, orders);
+  }
 }

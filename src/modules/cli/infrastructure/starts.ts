@@ -3,12 +3,17 @@ import { log } from "../../../infrastructure/log";
 import { Config } from "../../../infrastructure/persistence/Config";
 import { Robot } from "../../robot/domain/Robot";
 
-export const trable = () => {
+export const starts = () => {
   log(chalk.green.bold('Initialising travel'));
 
-  const robots = Config.get('robots') as Robot[];
+  const robotDtos = Config.get('robots') as Robot[];
 
-  robots.forEach(robot => robot.move());
+  const robots = robotDtos.map(robot => Robot.construct(robot));
+
+  robots.forEach(robot => {
+    robot.move()
+    log(chalk.green.bold(`traveling finished at ${robot.x}, ${robot.y}`));
+  });
 
   Config.clear();
 };
